@@ -1,0 +1,27 @@
+{
+  "name": "yoga",
+  "version": "1.0.0",
+  "description": "Greeting Card Mini E-commerce Website",
+  "main": "src/server.js",
+  "directories": {
+    "docs": "docs"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lynnagidza/yoga.git"
+  },
+  "author": "Lynn Agidza Ekalaji",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lynnagidza/yoga/issues"
+  },
+  "homepage": "https://github.com/lynnagidza/yoga#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  }
+}
