@@ -2,11 +2,17 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/product-listing', (req, res) => {
-  const selectedCategory = req.query.category;
+    const selectedCategory = req.query.category || 'all';
+    const categories = ['birthday', 'congratulations', 'gratitude'];
 
-  const products = fetchProductsByCategory(selectedCategory);
+    if (!categories.includes(selectedCategory)) {
+        res.redirect(`/product-listing?category=${selectedCategory}`);
+        return;
+    }
 
-  res.render('product-listing', { products, selectedCategory });
+    const products = fetchProductsByCategory(selectedCategory);
+
+    res.render('product-listing', { products, selectedCategory });
 });
 
 module.exports = router;

@@ -15,8 +15,6 @@ body {
 /* Header Styles */
 header {
     background-color: #fff;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
 }
 
 .navbar-brand img {
@@ -47,7 +45,7 @@ header {
 }
 
 /* Main Content Styles */
-.main {
+main {
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -116,3 +114,57 @@ footer {
 .carousel-control-prev:hover, .carousel-control-next:hover {
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+/* Product Listing Page Specific Styles */
+.card-carousel {
+    display: flex;
+    justify-content: space-between;
+}
+
+.category-bundle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category-card {
+    margin: 10px;
+    text-align: center;
+}
+
+.category-card img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.category-card img:hover {
+    transform: scale(1.05);
+}
+
+.category-card p {
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Featured Cards Section */
+#featured-cards {
+    background-color: #FFD700;
+    padding: 30px 0;
+}
+
+#carouselFeaturedCards {
+    margin-top: 20px;
+}
+
+/* Card Categories Section */
+#card-categories {
+    background-color: #fff;
+    padding: 30px 0;
+}
+
+/* Additional Custom Styles for Product Listing Page */
+/* Add your specific styles here */

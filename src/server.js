@@ -24,10 +24,10 @@ const signupRouter = require('./routes/signup');
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/cart', shoppingCartRouter);
-app.use('/checkout', checkoutRouter);
-app.use('/order-confirmation', orderConfirmationRouter);
-app.use('/signin', signinRouter);
-app.use('/signup', signupRouter);
+// app.use('/checkout', checkoutRouter);
+// app.use('/order-confirmation', orderConfirmationRouter);
+// app.use('/signin', signinRouter);
+// app.use('/signup', signupRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

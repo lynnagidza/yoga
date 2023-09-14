@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Products</title>
     <script src="https://kit.fontawesome.com/004ce8372e.js" crossorigin="anonymous"></script>
+    <script src="js/product-listing.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/product-listing.css">
 </head>
 <body>
     <header>
@@ -19,7 +20,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Featured</a>
@@ -29,10 +30,10 @@
                                 Categories
                             </a>
                             <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                                <a class="dropdown-item" href="product-listing.html">All</a>
-                                <a class="dropdown-item" href="product-listing.html?category=birthday">Birthday</a>
-                                <a class="dropdown-item" href="product-listing.html?category=congratulations">Congratulations</a>
-                                <a class="dropdown-item" href="product-listing.html?category=gratitude">Gratitude</a>
+                                <a class="dropdown-item" href="javascript:void(0);" onclick="showSection('all')">All</a>
+                                <a class="dropdown-item" href="javascript:void(0);" onclick="showSection('birthday')">Birthday</a>
+                                <a class="dropdown-item" href="javascript:void(0);" onclick="showSection('congratulations')">Congratulations</a>
+                                <a class="dropdown-item" href="javascript:void(0);" onclick="showSection('gratitude')">Gratitude</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -41,7 +42,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="signin.html">Login</a>
+                            <a class="nav-link" href="signin">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -166,7 +167,7 @@
             </div>
         </section>
 
-        <section class="category">
+        <section class="category" id="congratulations">
             <div class="container">
                 <h2>Congratulations</h2>
                 <div class="card-carousel row">
@@ -197,7 +198,7 @@
             </div>
         </section>
 
-        <section class="category">
+        <section class="category" id="gratitude">
             <div class="container">
                 <h2>Gratitude</h2>
                 <div class="card-carousel row">
