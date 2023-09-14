@@ -97,6 +97,7 @@ footer {
 /* Carousel Styles */
 .carousel-inner {
     text-align: center;
+    position: relative;
 }
 
 .carousel-control-prev, .carousel-control-next {
@@ -109,6 +110,9 @@ footer {
     font-size: 18px;
     color: #fff;
     transition: background-color 0.3s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .carousel-control-prev:hover, .carousel-control-next:hover {

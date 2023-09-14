@@ -1,0 +1,92 @@
+<head>
+    <script src="https://kit.fontawesome.com/004ce8372e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img src="https://hotpotmedia.s3.us-east-2.amazonaws.com/8-rP9rzNM7DwlqCUd.png?nc=1" alt="Company Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Featured</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <a class="dropdown-item" href="/product-listing.html?category=all">All</a>
+                            <a class="dropdown-item" href="/product-listing.html?category=birthday">Birthday</a>
+                            <a class="dropdown-item" href="/product-listing.html?category=congratulations">Congratulations</a>
+                            <a class="dropdown-item" href="/product-listing.html?category=gratitude">Gratitude</a>
+                        </div>                            
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signin">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<style>
+    /* Global Styles */
+    /* body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    } */
+
+    /* Header Styles */
+    header {
+        background-color: #fff;
+    }
+
+    .navbar-brand img {
+        max-width: 69px;
+        height: auto;
+        border-radius: 30px;
+    }
+
+    .navbar-toggler {
+        border: none;
+    }
+
+    .nav-item {
+        margin-right: 15px;
+    }
+
+    .nav-item:last-child {
+        margin-right: 0;
+    }
+
+    .nav-item a {
+        display: flex;
+        align-items: center;
+    }
+
+    .dropdown-menu {
+        min-width: 150px;
+    }
+</style>
