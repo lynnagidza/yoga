@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Playfair+Display:ital,wght@1,600&display=swap');
+
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f4f1ed;
     margin: 0;
     padding: 0;
 }
@@ -21,6 +23,12 @@ header {
     max-width: 69px;
     height: auto;
     border-radius: 30px;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', 'Major Mono Display', serif, monospace;
+    font-size: 32px;
+    color: #dd4730 !important;
 }
 
 .navbar-toggler {
@@ -96,6 +104,14 @@ h2 {
     position: relative;
 }
 
+.carousel-inner p {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right: 15px;
+    text-align: start !important;
+}
+
 .carousel-control-prev, .carousel-control-next {
     width: 30px;
     height: 30px;
@@ -147,7 +163,6 @@ h2 {
 .category-card p {
     font-size: 16px;
     margin-top: 10px;
-    font-weight: bold;
 }
 
 /* Featured Cards Section */
