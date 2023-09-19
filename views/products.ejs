@@ -1,4 +1,4 @@
-<% title = 'Products' %>
+<% title = 'Cards' %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +34,9 @@
                                             <% if (j < groupedProducts[section].length) { %>
                                                 <div class="col-sm-3">
                                                     <div class="card">
-                                                        <img src="<%= groupedProducts[section][j].imageUrl %>" class="card-img-top" alt="<%= groupedProducts[section][j].name %>">
+                                                        <a href="/product/<%= groupedProducts[section][j].id %>">
+                                                            <img src="<%= groupedProducts[section][j].imageUrl %>" class="card-img-top" alt="<%= groupedProducts[section][j].name %>">
+                                                        </a>
                                                         <div class="card-body">
                                                             <h5 class="card-title"><%= groupedProducts[section][j].name %></h5>
                                                             <p class="card-text"><%= groupedProducts[section][j].description %></p>
@@ -64,7 +66,9 @@
                         <% groupedProducts[section].forEach(product => { %>
                             <div class="col-sm-3">
                                 <div class="card">
+                                    <a href="/product/<%= product.id %>">
                                     <img src="<%= product.imageUrl %>" class="card-img-top" alt="<%= product.name %>">
+                                    </a>
                                     <div class="card-body">
                                         <h5 class="card-title"><%= product.name %></h5>
                                         <p class="card-text"><%= product.description %></p>

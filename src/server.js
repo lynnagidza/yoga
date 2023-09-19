@@ -10,13 +10,11 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 const indexRouter = require('./routes/index');
 const productsRouter = require('./routes/products');
+const individualProductRouter = require('./routes/product-details');
 
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
-// app.use('/products', (req, res) => {
-//     console.log('Accessed /products route');
-//     res.render('products');
-// });
+app.use('/product', individualProductRouter);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);

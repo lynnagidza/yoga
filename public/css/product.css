@@ -1,0 +1,60 @@
+/* Styles for the main content section */
+main {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#product-details {
+  padding: 20px;
+}
+
+.product-image {
+  max-width: 100%;
+}
+
+.product-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.product-description {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.product-price {
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.add-to-cart-button {
+  background-color: #DD4730;
+  color: #E6D5C4;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #FC4337;
+}
+
+/* Customization Options */
+.customization-options {
+  margin: 0;
+}
+
+.customization-options li {
+  list-style-type: none;
+  line-height: 1.4;
+}
+
+.customization-options li::before {
+  content: "\1F3A8";
+  margin-right: 10px;
+}
