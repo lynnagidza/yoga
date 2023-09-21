@@ -1,19 +1,11 @@
-// const express = require('express');
-// const router = express.Router();
+// // controllers/userController.js
+// const User = require('../models/User'); // Assuming your User model is in models/User.js
 // const bcrypt = require('bcrypt');
-// const User = require('../models/user');
 
-// // Route to handle user registration form
-// router.post('/register', async (req, res) => {
+// // User registration
+// exports.registerUser = async (req, res) => {
 //   try {
-//     // Get user input from the registration form
 //     const { username, email, password } = req.body;
-
-//     // Check if the user already exists
-//     const existingUser = await User.findOne({ email });
-//     if (existingUser) {
-//       return res.status(400).json({ message: 'User already exists' });
-//     }
 
 //     // Hash the password
 //     const hashedPassword = await bcrypt.hash(password, 10);
@@ -33,6 +25,12 @@
 //     console.error('Error registering user:', error);
 //     res.status(500).json({ message: 'Internal server error' });
 //   }
-// });
+// };
 
-// module.exports = router;
+// // User login
+// exports.loginUser = (req, res) => {
+//   // Implement login logic here using Passport.js or your chosen authentication strategy
+//   // Return appropriate responses based on login success or failure
+// };
+
+// // Other user-related controller functions can be added here

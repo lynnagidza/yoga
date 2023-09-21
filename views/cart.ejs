@@ -1,0 +1,68 @@
+<% title = 'Cart' %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <script src="https://kit.fontawesome.com/004ce8372e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/cart.css"> <!-- Create cart-specific CSS file -->
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="shortcut icon" href="#">
+</head>
+
+<body>
+    <header>
+        <%- include('partials/header.html') %>
+    </header>
+
+    <main>
+        <div class="container">
+            <% if (cartItems.length === 0) { %>
+                <!-- Display a message when the cart is empty -->
+                <div class="empty-cart">
+                    <h2>Your Cart is Empty</h2>
+                </div>
+            <% } else { %>
+                <!-- Display cart items when the cart is not empty -->
+                <h2>Your Cart</h2>
+                <div class="cart-items">
+                    <% cartItems.forEach(item => { %>
+                        <div class="cart-item">
+                            <div class="item-image">
+                                <img src="<%= item.imageUrl %>" alt="<%= item.name %>">
+                            </div>
+                            <div class="item-details">
+                                <h3><%= item.name %></h3>
+                                <p>Price: $<%= item.price.toFixed(2) %></p>
+                                <div class="quantity-control">
+                                    <button class="btn btn-sm btn-primary" onclick="decreaseQuantity(<%= item.id %>)">-</button>
+                                    <span><%= item.quantity %></span>
+                                    <button class="btn btn-sm btn-primary" onclick="increaseQuantity(<%= item.id %>)">+</button>
+                                </div>
+                                <p>Total: $<%= (item.price * item.quantity).toFixed(2) %></p>
+                                <button class="btn btn-danger" onclick="removeFromCart(<%= item.id %>)">Remove</button>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+                <div class="cart-total">
+                    <p>Total Price: $<%= calculateTotalPrice().toFixed(2) %></p>
+                </div>
+                <button class="btn btn-success proceed-to-checkout">Proceed to Checkout</button>
+            <% } %>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('partials/footer.html') %>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/cart.js"></script>
+</body>
+</html>
