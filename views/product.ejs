@@ -45,7 +45,9 @@
                         <% } %>
 
                         <p class="product-price">Price: $<%= product.price.toFixed(2) %></p>
-                        <button class="btn btn-primary add-to-cart-button">Add to Cart</button>
+                        <button class="btn btn-primary add-to-cart-button" id="addToCartButton"
+                        data-product-id="<%= product.id %>"
+                        data-product-price="<%= product.price %>" data-product-image-url="<%= product.imageUrl %>">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -58,5 +60,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/product.js"></script>
+
 </body>
 </html>

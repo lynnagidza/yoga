@@ -1,22 +1,25 @@
-// const mongoose = require('mongoose');
-const mongodb = require('mongodb');
+const mongoose = require('mongoose');
 
-const url = 'mongodb://localhost:27017';
-const dbName = 'yoga_db';
-const client = new mongodb.MongoClient(url, {
+const url = 'mongodb://localhost:27017/yoga_db';
+
+mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  maxPoolSize: 10,
 });
 
-client.connect((err) => {
-  if (err) {
-    console.error('MongoDB connection error:', err);
-  } else {
-    console.log('MongoDB connected');
-  }
-}
-);
+const db = mongoose.connection;
 
-const db = client.db(dbName);
+db.on('error', (err) => {
+  console.error('MongoDB connection error:', err);
+});
+
+db.once('open', () => {
+  console.log('MongoDB connected');
+});
+
+db.on('disconnected', () => {
+  console.log('Disconnected from MongoDB');
+});
 
 module.exports = db;

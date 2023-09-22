@@ -1,49 +1,42 @@
-// // const express = require('express');
-// // const router = express.Router();
-// // const { getCart } = require('../controllers/shopping-cart');
+const express = require('express');
 
-// // router.get('/', getCart);
+const router = express.Router();
+const { viewCart, addToCart, calculateTotalPrice } = require('../controllers/cartController');
 
-// // router.post('/add', async (req, res) => {
-// //   const { productId, quantity, price } = req.body;
-// //   try {
-// //     const response = await addToCartAPI(productId, quantity, price);
+function validateCartInput(req, res, next) {
+  const {
+    productId, quantity, price, imageUrl,
+  } = req.body;
+  if (!productId || !quantity || !price || !imageUrl) {
+    return res.status(400).json({ message: 'Missing or invalid cart data' });
+  }
+  return next();
+}
 
-// //     res.redirect('/cart');
-// //   } catch (err) {
-// //     res.status(500).send(err.message);
-// //   }
-// // });
+router.get('/', async (req, res) => {
+  try {
+    const { guestId } = req.cookies;
 
-// // router.delete('/remove/:itemId', async (req, res) => {
-// //   const { itemId } = req.params.itemId;
-// //   try {
-// //     await removeFromCartAPI(itemId);
+    const cartItems = await viewCart(null, guestId);
+    const totalPrice = calculateTotalPrice(cartItems);
+    res.render('cart', { cartItems, totalPrice });
+  } catch (err) {
+    res.status(500).json({ message: 'Error getting cart:', err });
+  }
+});
 
-// //     res.redirect('/cart');
-// //   } catch (err) {
-// //     res.status(500).send(err.message);
-// //   }
-// // });
+router.post('/add', validateCartInput, async (req, res) => {
+  const {
+    productId, quantity, price, imageUrl,
+  } = req.body;
+  try {
+    const { guestId } = req.cookies;
 
-// // module.exports = router;
+    await addToCart(null, guestId, productId, quantity, price, imageUrl, res);
+    res.redirect('/cart');
+  } catch (err) {
+    res.status(500).json({ message: 'Error adding product to cart:', err });
+  }
+});
 
-
-// // routes/cartRoutes.js
-// const express = require('express');
-// const router = express.Router();
-// const cartController = require('../controllers/cartController');
-// const isAuthenticated = require('../utils/auth');
-
-// // Add to cart route (requires authentication)
-// router.post('/add-to-cart', isAuthenticated, cartController.addToCart);
-
-// // Remove from cart route (requires authentication)
-// router.delete('/remove-from-cart/:productId', isAuthenticated, cartController.removeFromCart);
-
-// // View cart route (requires authentication)
-// router.get('/view-cart', isAuthenticated, cartController.viewCart);
-
-// // Other cart-related routes can be added here
-
-// module.exports = router;
+module.exports = router;

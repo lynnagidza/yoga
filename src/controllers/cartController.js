@@ -1,47 +1,48 @@
-// // controllers/cartController.js
-// const Cart = require('../models/cart'); // Assuming your Cart model is in models/Cart.js
+const db = require('../utils/db');
+const CartItem = require('../models/cart-item');
 
-// // Add a product to the cart
-// exports.addToCart = async (req, res) => {
-//   try {
-//     const { productId, quantity } = req.body;
-//     const userId = req.user._id; // Assuming you have user authentication implemented
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
 
-//     // Find the user's cart or create one if it doesn't exist
-//     let cart = await Cart.findOne({ userId });
-//     if (!cart) {
-//       cart = new Cart({ userId, items: [] });
-//     }
+class CartController {
+  async viewCart(userId, guestId) {
+    let cartItems;
 
-//     // Check if the product is already in the cart
-//     const existingItemIndex = cart.items.findIndex((item) => item.productId === productId);
+    if (userId) {
+      cartItems = await CartItem.find({ userId }).populate('productId');
+    } else {
+      cartItems = await CartItem.find({ guestId }).populate('productId');
+    }
 
-//     if (existingItemIndex !== -1) {
-//       // Update the quantity if the product is already in the cart
-//       cart.items[existingItemIndex].quantity += quantity;
-//     } else {
-//       // Add the product to the cart
-//       cart.items.push({ productId, quantity });
-//     }
+    return cartItems;
+  }
 
-//     // Save the updated cart
-//     await cart.save();
+  async addToCart(userId, guestId, productId, quantity, price, imageUrl) {
+    let cartItem;
 
-//     res.status(200).json({ message: 'Product added to cart successfully' });
-//   } catch (error) {
-//     console.error('Error adding product to cart:', error);
-//     res.status(500).json({ message: 'Internal server error' });
-//   }
-// };
+    if (userId) {
+      cartItem = new CartItem({
+        userId, productId, quantity, price, imageUrl,
+      });
+    } else {
+      cartItem = new CartItem({
+        guestId, productId, quantity, price, imageUrl,
+      });
+    }
 
-// // Remove a product from the cart
-// exports.removeFromCart = async (req, res) => {
-//   // Implement removal logic similar to addToCart
-// };
+    const savedItem = await cartItem.save();
+    return savedItem;
+  }
 
-// // View the user's cart
-// exports.viewCart = async (req, res) => {
-//   // Implement view cart logic similar to addToCart
-// };
+  calculateTotalPrice(cartItems) {
+    let totalPrice = 0;
+    cartItems.forEach((item) => {
+      totalPrice += item.price * item.quantity;
+    });
+    return totalPrice;
+  }
+}
 
-// // Other cart-related controller functions can be added here
+module.exports = new CartController();
