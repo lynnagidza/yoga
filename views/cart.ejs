@@ -21,12 +21,11 @@
     <main>
         <div class="container">
             <% if (cartItems.length === 0) { %>
-                <!-- Display a message when the cart is empty -->
                 <div class="empty-cart">
                     <h2>Your Cart is Empty</h2>
+                    <img src="https://github.com/lynnagidza/yoga/blob/dev/public/img/empty_cart.png" alt="Empty Cart">
                 </div>
             <% } else { %>
-                <!-- Display cart items when the cart is not empty -->
                 <h2>Your Cart</h2>
                 <div class="cart-items">
                     <% cartItems.forEach(item => { %>
@@ -38,12 +37,12 @@
                                 <h3><%= item.name %></h3>
                                 <p>Price: $<%= item.price.toFixed(2) %></p>
                                 <div class="quantity-control">
-                                    <button class="btn btn-sm btn-primary" onclick="decreaseQuantity(<%= item.id %>)">-</button>
+                                    <button class="btn btn-sm btn-primary"  id="decreaseButton_<%= item.id %>">-</button>
                                     <span><%= item.quantity %></span>
-                                    <button class="btn btn-sm btn-primary" onclick="increaseQuantity(<%= item.id %>)">+</button>
-                                </div>
-                                <p>Total: $<%= (item.price * item.quantity).toFixed(2) %></p>
-                                <button class="btn btn-danger" onclick="removeFromCart(<%= item.id %>)">Remove</button>
+                                    <button class="btn btn-sm btn-primary" id="increaseButton_<%= item.id %>">+</button>
+                                    </div>
+                                    <p>Total: $<%= (item.price * item.quantity).toFixed(2) %></p>
+                                    <button class="btn btn-danger" id="removeButton_<%= item.id %>">Remove</button>
                             </div>
                         </div>
                     <% }); %>

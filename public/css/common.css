@@ -52,6 +52,12 @@ header {
     min-width: 150px;
 }
 
+.fa-solid {
+    color: #dd4730;
+    font-size: large;
+    margin-right: 5px;
+}
+
 /* Footer Styles */
 footer {
     /* padding: 15px 0; */

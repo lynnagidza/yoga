@@ -14,6 +14,11 @@ h2 {
     margin-top: 50px;
 }
 
+.empty-cart img {
+    max-width: 732px;
+    max-height: 558px;
+}
+
 .cart-items {
     margin-top: 20px;
 }

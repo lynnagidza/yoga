@@ -43,6 +43,10 @@ class CartController {
     });
     return totalPrice;
   }
+
+  async removeFromCart(itemId) {
+    await CartItem.findByIdAndDelete(itemId);
+  }
 }
 
 module.exports = new CartController();

@@ -1,7 +1,9 @@
 const express = require('express');
 
 const router = express.Router();
-const { viewCart, addToCart, calculateTotalPrice } = require('../controllers/cartController');
+const {
+  viewCart, addToCart, calculateTotalPrice, removeFromCart,
+} = require('../controllers/cartController');
 
 function validateCartInput(req, res, next) {
   const {
@@ -36,6 +38,16 @@ router.post('/add', validateCartInput, async (req, res) => {
     res.redirect('/cart');
   } catch (err) {
     res.status(500).json({ message: 'Error adding product to cart:', err });
+  }
+});
+
+router.delete('/remove/:itemId', async (req, res) => {
+  const { itemId } = req.params;
+  try {
+    await removeFromCart(itemId);
+    res.sendStatus(204);
+  } catch (err) {
+    res.status(500).json({ message: 'Error removing product from cart:', err });
   }
 });
 

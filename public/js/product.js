@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
           if (response.ok) {
             const successMessage = document.createElement('p');
             successMessage.textContent = 'Product added to cart successfully';
-            document.body.appendChild(successMessage);
           } else {
             throw new Error('Error adding product to cart');
           }
