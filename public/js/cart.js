@@ -1,24 +1,5 @@
-function addToCart(productId, quantity, price) {
-  fetch('/cart/add', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ productId, quantity, price }),
-  })
-    .then((response) => {
-      if (response.status === 201) {
-        // Do something if successful
-      } else {
-        console.error('Failed to add item to cart');
-      }
-    })
-    .catch((error) => {
-      console.error('Error adding item to cart:', error);
-    });
-}
-
 function removeFromCart(itemId) {
+  console.log('removeFromCart here');
   fetch(`/cart/remove/${itemId}`, {
     method: 'DELETE',
   })
@@ -35,6 +16,7 @@ function removeFromCart(itemId) {
 }
 
 function decreaseQuantity(itemId) {
+  console.log('Decrease quantity function called for itemId:', itemId);
   fetch(`/cart/decrease/${itemId}`, {
     method: 'POST',
   })
@@ -56,6 +38,7 @@ function decreaseQuantity(itemId) {
 }
 
 function increaseQuantity(itemId) {
+  console.log('Increase quantity function called for itemId:', itemId);
   fetch(`/cart/increase/${itemId}`, {
     method: 'POST',
   })
@@ -73,25 +56,30 @@ function increaseQuantity(itemId) {
       console.error('Error increasing item quantity:', error);
     });
 }
+
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM loaded! 🚀');
-  const buttons = document.querySelectorAll('.btn-primary');
+  const decreaseButtons = document.querySelectorAll('.decrease-button');
+  const increaseButtons = document.querySelectorAll('.increase-button');
+  const removeButtons = document.querySelectorAll('.remove-button');
 
-  buttons.forEach((button) => {
-    const { itemId } = button.dataset;
+  decreaseButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const itemId = button.getAttribute('data-item-id');
+      decreaseQuantity(itemId);
+    });
+  });
 
-    // Check if the button has a data-item-id attribute
-    if (itemId) {
-      button.addEventListener('click', () => {
-        // Determine the action based on the button's ID
-        if (button.id.startsWith('decreaseButton')) {
-          decreaseQuantity(itemId);
-        } else if (button.id.startsWith('increaseButton')) {
-          increaseQuantity(itemId);
-        } else if (button.id.startsWith('removeButton')) {
-          removeFromCart(itemId);
-        }
-      });
-    }
+  increaseButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const itemId = button.getAttribute('data-item-id');
+      increaseQuantity(itemId);
+    });
+  });
+
+  removeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const itemId = button.getAttribute('data-item-id');
+      removeFromCart(itemId);
+    });
   });
 });
