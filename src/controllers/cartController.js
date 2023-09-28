@@ -1,11 +1,7 @@
 const db = require('../utils/db');
 const CartItem = require('../models/cart-item');
 
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB');
-});
-
+db.on('open', () => {});
 class CartController {
   async viewCart(userId, guestId) {
     let cartItems;
@@ -19,16 +15,24 @@ class CartController {
     return cartItems;
   }
 
-  async addToCart(userId, guestId, productId, quantity, price, imageUrl) {
+  async addToCart(userId, guestId, productId, productName, quantity, price, imageUrl) {
     let cartItem;
 
     if (userId) {
-      cartItem = new CartItem({
-        userId, productId, quantity, price, imageUrl,
-      });
+      if (await CartItem.findOne({ userId, productId })) {
+        cartItem = await CartItem.findOne({ userId, productId });
+        cartItem.quantity += 1;
+      } else {
+        cartItem = new CartItem({
+          userId, productId, productName, quantity, price, imageUrl,
+        });
+      }
+    } else if (await CartItem.findOne({ guestId, productId })) {
+      cartItem = await CartItem.findOne({ guestId, productId });
+      cartItem.quantity += 1;
     } else {
       cartItem = new CartItem({
-        guestId, productId, quantity, price, imageUrl,
+        guestId, productId, productName, quantity, price, imageUrl,
       });
     }
 
@@ -46,6 +50,22 @@ class CartController {
 
   async removeFromCart(itemId) {
     await CartItem.findByIdAndDelete(itemId);
+  }
+
+  async increaseQuantity(itemId) {
+    const cartItem = await CartItem.findById(itemId);
+    cartItem.quantity += 1;
+    await cartItem.save();
+  }
+
+  async decreaseQuantity(itemId) {
+    const cartItem = await CartItem.findById(itemId);
+    if (cartItem.quantity > 1) {
+      cartItem.quantity -= 1;
+      await cartItem.save();
+    } else if (cartItem.quantity === 1) {
+      this.removeFromCart(itemId);
+    }
   }
 }
 

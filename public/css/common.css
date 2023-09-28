@@ -67,3 +67,15 @@ footer {
     width: 100%;
     padding-top: 15px;
 }
+
+/* Custom alert */
+.custom-alert {
+    display: none;
+    text-align: center;
+ }
+ 
+ .custom-alert-content {
+    background-color: #E6D5C4;
+    color: #fff;
+    text-align: center;
+  }

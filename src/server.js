@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const expressRedirect = require('express-redirect');
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+expressRedirect(app);
 
 app.use(cookieParser());
 app.use((req, res, next) => {
