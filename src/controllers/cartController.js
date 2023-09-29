@@ -3,6 +3,15 @@ const CartItem = require('../models/cart-item');
 
 db.on('open', () => {});
 class CartController {
+  constructor() {
+    this.viewCart = this.viewCart.bind(this);
+    this.addToCart = this.addToCart.bind(this);
+    this.calculateTotalPrice = this.calculateTotalPrice.bind(this);
+    this.removeFromCart = this.removeFromCart.bind(this);
+    this.increaseQuantity = this.increaseQuantity.bind(this);
+    this.decreaseQuantity = this.decreaseQuantity.bind(this);
+  }
+
   async viewCart(userId, guestId) {
     let cartItems;
 

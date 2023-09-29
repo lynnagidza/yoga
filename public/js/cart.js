@@ -1,11 +1,10 @@
 function removeFromCart(itemId) {
-  console.log('removeFromCart here');
   fetch(`/cart/remove/${itemId}`, {
     method: 'DELETE',
   })
     .then((response) => {
       if (response.status === 204) {
-        // Do something if successful
+        window.location.reload();
       } else {
         console.error('Failed to remove item from cart');
       }
@@ -16,18 +15,12 @@ function removeFromCart(itemId) {
 }
 
 function decreaseQuantity(itemId) {
-  console.log('Decrease quantity function called for itemId:', itemId);
   fetch(`/cart/decrease/${itemId}`, {
     method: 'POST',
   })
     .then((response) => {
       if (response.status === 200) {
-        const quantityElement = document.getElementById(`quantity-${itemId}`);
-        let currentQuantity = parseInt(quantityElement.textContent, 10);
-        if (currentQuantity > 1) {
-          currentQuantity -= 1;
-          quantityElement.textContent = currentQuantity.toString();
-        }
+        window.location.reload();
       } else {
         console.error('Failed to decrease item quantity on the server');
       }
@@ -38,16 +31,12 @@ function decreaseQuantity(itemId) {
 }
 
 function increaseQuantity(itemId) {
-  console.log('Increase quantity function called for itemId:', itemId);
   fetch(`/cart/increase/${itemId}`, {
     method: 'POST',
   })
     .then((response) => {
       if (response.status === 200) {
-        const quantityElement = document.getElementById(`quantity-${itemId}`);
-        let currentQuantity = parseInt(quantityElement.textContent, 10);
-        currentQuantity += 1;
-        quantityElement.textContent = currentQuantity.toString();
+        window.location.reload();
       } else {
         console.error('Failed to increase item quantity on the server');
       }
