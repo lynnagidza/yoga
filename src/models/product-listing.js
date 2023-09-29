@@ -12,7 +12,7 @@ const products = [
       addPhoto: 'Include a cherished photo to make the card even more special.',
     },
     price: 5.99,
-    imageUrl: 'https://th.bing.com/th/id/OIG.O8QEUO9rtRazS.8laqk3?w=270&h=270&c=6&r=0&o=5&pid=ImgGn',
+    imageUrl: 'https://th.bing.com/th/id/OIG.eoRc93ycGq.hLnLlGO1p?pid=ImgGn',
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const products = [
       envelopeColor: 'Select an envelope color that matches the card\'s vibrant design.',
     },
     price: 4.99,
-    imageUrl: 'https://hotpotmedia.s3.us-east-2.amazonaws.com/8-7pT5e1u4FzNwZv2.png?nc=1',
+    imageUrl: 'https://th.bing.com/th/id/OIG.61iLBqppKZyJdfBhkOrI?pid=ImgGn',
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const products = [
       envelopeColor: 'Choose an envelope color that resonates with the card\'s theme, making it an even more memorable gift.',
     },
     price: 6.99,
-    imageUrl: 'https://th.bing.com/th/id/OIG.1Ak0l1T7HR_nTlI7ROfM?w=270&h=270&c=6&r=0&o=5&pid=ImgGn',
+    imageUrl: 'https://th.bing.com/th/id/OIG.hldXZMBL1_OF1YevNbuL?pid=ImgGn',
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ const products = [
       envelopeColor: 'Select an envelope color that complements the card\'s timeless design.',
     },
     price: 5.49,
-    imageUrl: 'https://th.bing.com/th/id/OIG.rl207yO4rxPBlFMJDHkO?w=270&h=270&c=6&r=0&o=5&pid=ImgGn',
+    imageUrl: 'https://th.bing.com/th/id/OIG.ud6He5F5DfcAd2yj8wg6?pid=ImgGn',
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ const products = [
       envelopeColor: 'Choose an envelope color that matches the card\'s joyful spirit.',
     },
     price: 4.99,
-    imageUrl: 'https://th.bing.com/th/id/OIG.csJuE1hnf7FvAVvJwvX7?w=270&h=270&c=6&r=0&o=5&pid=ImgGn',
+    imageUrl: 'https://th.bing.com/th/id/OIG.JdVdHwfXKnAHTf3kGoZV?pid=ImgGn',
   },
   {
     id: 6,
@@ -77,7 +77,7 @@ const products = [
       envelopeColor: 'Select an envelope color that complements the card\'s reflective theme.',
     },
     price: 5.99,
-    imageUrl: 'https://th.bing.com/th/id/OIG.Pn4UB9SyycPCYBKUiEZL?w=270&h=270&c=6&r=0&o=5&pid=ImgGn',
+    imageUrl: 'https://th.bing.com/th/id/OIG.W2pSd60hejl2UGzEplEu?pid=ImgGn',
   },
   {
     id: 7,
@@ -90,7 +90,7 @@ const products = [
       envelopeColor: 'Choose an envelope color that enhances the card\'s cuddly appeal.',
     },
     price: 6.49,
-    imageUrl: 'https://th.bing.com/th/id/OIG.oxgScRMl8qBdyofvk6Wj?w=270&h=270&c=6&r=0&o=5&pid=ImgGn',
+    imageUrl: 'https://th.bing.com/th/id/OIG.jGJwkPpfW_T1VSkvFMwR?pid=ImgGn',
   },
   {
     id: 8,
@@ -103,7 +103,7 @@ const products = [
       envelopeColor: 'Select an envelope color that complements the card\'s cheerful theme.',
     },
     price: 5.99,
-    imageUrl: 'https://hotpotmedia.s3.us-east-2.amazonaws.com/8-eJn7BJMM22rAnAH.png?nc=1',
+    imageUrl: 'https://th.bing.com/th/id/OIG.DaHL6XapqfHtlkLoBAKA?pid=ImgGn',
   },
   // Congratulations
   {
@@ -118,7 +118,7 @@ const products = [
       envelopeDesign: 'Select from a variety of envelope designs to make your card stand out.',
     },
     price: 6.99,
-    imageUrl: 'https://hotpotmedia.s3.us-east-2.amazonaws.com/8-rP9rzNM7DwlqCUd.png?nc=1',
+    imageUrl: 'https://th.bing.com/th/id/OIG.YSbcKK0tFm.UFa5qa8_W?pid=ImgGn',
   },
   {
     id: 10,
@@ -132,7 +132,7 @@ const products = [
       envelopeDesign: 'Select an envelope design that complements the card\'s style.',
     },
     price: 5.99,
-    imageUrl: 'https://hotpotmedia.s3.us-east-2.amazonaws.com/8-kEdUex5meYFYrPN.png?nc=1',
+    imageUrl: 'https://th.bing.com/th/id/OIG.xRTJ1oDg7BDf_v0nTy_m?pid=ImgGn',
   },
   {
     id: 11,
@@ -145,7 +145,7 @@ const products = [
       envelopeColor: 'Select an envelope color that matches the card\'s youthful enthusiasm.',
     },
     price: 5.99,
-    imageUrl: 'https://th.bing.com/th/id/OIG.gcCEx3sp8v25Ai8APcA_?w=270&h=270&c=6&r=0&o=5&pid=ImgGn',
+    imageUrl: 'https://th.bing.com/th/id/OIG.r1RIsoDY1sg5TLv3F871?pid=ImgGn',
   },
   {
     id: 12,
@@ -159,36 +159,88 @@ const products = [
       envelopeDesign: 'Select an envelope design that complements the card\'s romantic theme.',
     },
     price: 5.99,
-    imageUrl: 'https://th.bing.com/th/id/OIG.QLzbfYh5DvSSZ4ldZ_Sa?w=270&h=270&c=6&r=0&o=5&pid=ImgGn',
+    imageUrl: 'https://th.bing.com/th/id/OIG.W0borVd8i7uTXrkGKkCI?pid=ImgGn',
   },
-  // Gratitude
+  // Christmas
   {
     id: 13,
-    name: 'Heartfelt Thanks',
-    category: 'gratitude',
-    description: 'Express your thanks with this heartfelt gratitude card.',
-    description2: 'Share your heartfelt thanks with this sincere gratitude card. Its design reflects your deep appreciation and gratitude in a simple yet touching way. Inside, you\'ll find a blank space for you to write your personal message of thanks, whether it\'s for a kind gesture, a thoughtful gift, or simply to express your gratitude to someone special.',
+    name: 'Heartfelt Christmas Wishes',
+    category: 'christmas',
+    description: 'Send your heartfelt Christmas wishes with this beautiful card.',
+    description2: 'Share your warmest Christmas wishes with this sincere card. Its design reflects the spirit of the season in a simple yet touching way. Inside, you\'ll find a blank space for you to write your personal Christmas message, whether it\'s for family, friends, or someone special.',
     customizationOptions: {
-      message: 'Personalize the inside message with your own words of gratitude and appreciation.',
+      message: 'Personalize the inside message with your own words of holiday cheer.',
       fontStyle: 'Choose from a selection of fonts to add a personal touch to your message.',
-      envelopeColor: 'Select an envelope color that complements the card\'s design, from soft pastels to earthy tones.',
+      envelopeColor: 'Select an envelope color that complements the card\'s festive design, from classic reds to earthy tones.',
     },
     price: 4.99,
-    imageUrl: 'https://hotpotmedia.s3.us-east-2.amazonaws.com/8-STQeLMI2685rPkG.png?nc=1',
+    imageUrl: 'https://th.bing.com/th/id/OIG.34jcdo3O_deEQI4xnZQV?pid=ImgGn',
   },
   {
     id: 14,
-    name: 'Peaceful Appreciation',
-    category: 'gratitude',
-    description: 'Sending warm thanks and appreciation your way.',
-    description2: 'Express your thanks with this heartfelt gratitude card. This card is designed to convey your deep appreciation and gratitude in a simple yet touching way. The front of the card features a serene and calming design that sets a peaceful tone. Inside, you\'ll find a blank space for you to write your personal message of thanks, whether it\'s for a kind gesture, a thoughtful gift, or simply to express your gratitude to someone special.',
+    name: 'Choma Christmas',
+    category: 'christmas',
+    description: 'Sending warm Christmas thanks and appreciation your way.',
+    description2: 'Express your thanks with this heartfelt Christmas card. This card is designed to convey your deep appreciation and gratitude during the holiday season in a simple yet touching way. The front of the card features a serene and calming Christmas design that sets a peaceful tone. Inside, you\'ll find a blank space for you to write your personal Christmas message, whether it\'s for a kind gesture, a thoughtful gift, or simply to express your gratitude to someone special.',
     customizationOptions: {
-      message: 'Personalize the inside message with your own words of gratitude and appreciation.',
+      message: 'Personalize the inside message with your own words of Christmas gratitude and appreciation.',
       fontStyle: 'Choose from a selection of fonts to add a personal touch to your message.',
-      envelopeColor: 'Select an envelope color that complements the card\'s design, from soft pastels to earthy tones.',
+      envelopeColor: 'Select an envelope color that complements the card\'s Christmas design, from classic reds to earthy tones.',
     },
     price: 5.49,
-    imageUrl: 'https://hotpotmedia.s3.us-east-2.amazonaws.com/8-bOILEbdUCJoKEIe.png?nc=1',
+    imageUrl: 'https://th.bing.com/th/id/OIG.s5xZdDifUJV7_Mg6bu95?pid=ImgGn',
+  },
+  {
+    id: 15,
+    name: 'Christmas Holiday',
+    category: 'christmas',
+    description: 'Wishing you a Christmas filled with joy and happiness.',
+    description2: 'Send warm Christmas wishes with this delightful card. It features a cheerful design that captures the spirit of the season. Inside, you can pen your own heartfelt message to make the recipient\'s day even more special.',
+    customizationOptions: {
+      message: 'Customize the inside message with your own words of joy and happiness.',
+      envelopeColor: 'Select an envelope color that matches the card\'s vibrant design.',
+    },
+    price: 4.99,
+    imageUrl: 'https://th.bing.com/th/id/OIG.YAbxHpsD6j4xYpRd0Jnm?pid=ImgGn',
+  },
+  {
+    id: 16,
+    name: 'Christmas Blessings',
+    category: 'christmas',
+    description: 'Wishing you a Christmas filled with blessings.',
+    description2: 'Share your heartfelt Christmas wishes with this elegant card. Its classic design and warm message make it the perfect choice to convey your best regards during the holiday season.',
+    customizationOptions: {
+      message: 'Customize the inside message to add a personal touch.',
+      envelopeColor: 'Select an envelope color that complements the card\'s timeless design.',
+    },
+    price: 5.49,
+    imageUrl: 'https://th.bing.com/th/id/OIG.UEPUeGxgeJJZUmPta9h2?pid=ImgGn',
+  },
+  {
+    id: 17,
+    name: 'Christmas Safari',
+    category: 'christmas',
+    description: 'Wishing you a wild Christmas.',
+    description2: 'Send warm Christmas wishes with this adorable card. The cute design and loving message convey your affectionate hugs and best wishes. Inside, you can add a personal message to make it even more heartfelt.',
+    customizationOptions: {
+      message: 'Personalize the card with your own loving message and warm wishes.',
+      envelopeColor: 'Choose an envelope color that enhances the card\'s wild appeal.',
+    },
+    price: 6.49,
+    imageUrl: 'https://th.bing.com/th/id/OIG.Y3eJF17xLMYv4Gx6nG5K?pid=ImgGn',
+  },
+  {
+    id: 18,
+    name: 'Christmas in shags',
+    category: 'christmas',
+    description: 'Wishing you a Christmas filled with joy and happiness.',
+    description2: 'Send warm Christmas wishes with this delightful yet funny card. It features a cheerful design that captures the spirit of the season. Inside, you can pen your own heartfelt message to make the recipient\'s day even more special.',
+    customizationOptions: {
+      message: 'Customize the inside message with your own words of joy and happiness.',
+      envelopeColor: 'Select an envelope color that matches the card\'s vibrant design.',
+    },
+    price: 4.99,
+    imageUrl: 'https://th.bing.com/th/id/OIG.2ilqi.Jex9ZyUlw7z97j?pid=ImgGn',
   },
 ];
 

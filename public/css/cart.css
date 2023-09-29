@@ -10,6 +10,10 @@ h2 {
     text-align: center;
 }
 
+h5 {
+    font-weight: bold;
+    font-size: 16px;
+}
 .empty-cart {
     text-align: center;
     margin-top: 50px;
@@ -52,22 +56,34 @@ h2 {
 .quantity-control {
     display: flex;
     align-items: center;
+    text-align: center;
 }
 
 .quantity-control button {
     margin: 0 5px;
-    padding: 5px 10px;
-    background-color: #28a745;
+    padding: 2px 4px;
+    background-color: #E6D5C4;
     color: #fff;
     border: none;
+    /* border-style: solid;
+    border-width: 1px 1px; */
     cursor: pointer;
     font-size: 14px;
+    size: 9px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
+.decrease-button {
+    clip-path: polygon(100% 0%, 0% 50%, 100% 100%);
+}
+
+.increase-button {
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+}
+
 .quantity-control button:hover {
-    background-color: #218838;
+    background-color: #b6a798;
 }
 
 .remove-button {

@@ -19,69 +19,94 @@
     </header>
 
 <main>
-    <% sectionsToRender.forEach(section => { %>
-        <section class="category" id="<%= section %>">
-            <h2 class="text-center"><%= section.charAt(0).toUpperCase() + section.slice(1) %></h2>
-            <div class="container">
-                <% if (groupedProducts[section].length > 4) { %>
-                    <div id="carousel<%= section %>" class="carousel slide" data-ride="carousel">
-                        <!-- Carousel items -->
-                        <div class="carousel-inner">
-                            <% for (let i = 0; i < groupedProducts[section].length; i += 4) { %>
-                                <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
-                                    <div class="row">
-                                        <% for (let j = i; j < i + 4; j++) { %>
-                                            <% if (j < groupedProducts[section].length) { %>
-                                                <div class="col-sm-3">
-                                                    <div class="card">
-                                                        <a href="/product/<%= groupedProducts[section][j].id %>">
-                                                            <img src="<%= groupedProducts[section][j].imageUrl %>" class="card-img-top" alt="<%= groupedProducts[section][j].name %>">
-                                                        </a>
-                                                        <div class="card-body">
-                                                            <h5 class="card-title"><%= groupedProducts[section][j].name %></h5>
-                                                            <p class="card-text"><%= groupedProducts[section][j].description %></p>
-                                                            <p class="card-text"><small class="text-muted">Price: $<%= groupedProducts[section][j].price.toFixed(2) %></small></p>
+    <% if (selectedCategory === 'all') { %>
+        <% sectionsToRender.forEach(section => { %>
+            <section class="category" id="<%= section %>">
+                <h2 class="text-center"><%= section.charAt(0).toUpperCase() + section.slice(1) %></h2>
+                <div class="container">
+                    <% if (groupedProducts[section].length > 4) { %>
+                        <div id="carousel<%= section %>" class="carousel slide" data-ride="carousel">
+                            <!-- Carousel items -->
+                            <div class="carousel-inner">
+                                <% for (let i = 0; i < groupedProducts[section].length; i += 4) { %>
+                                    <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+                                        <div class="row">
+                                            <% for (let j = i; j < i + 4; j++) { %>
+                                                <% if (j < groupedProducts[section].length) { %>
+                                                    <div class="col-sm-3">
+                                                        <div class="card">
+                                                            <a href="/product/<%= groupedProducts[section][j].id %>">
+                                                                <img src="<%= groupedProducts[section][j].imageUrl %>" class="card-img-top" alt="<%= groupedProducts[section][j].name %>">
+                                                            </a>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title"><%= groupedProducts[section][j].name %></h5>
+                                                                <p class="card-text"><%= groupedProducts[section][j].description %></p>
+                                                                <p class="card-text"><small class="text-muted">Price: $<%= groupedProducts[section][j].price.toFixed(2) %></small></p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                <% } %>
                                             <% } %>
-                                        <% } %>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            </div>
+
+                            <!-- Carousel controls -->
+                            <a class="carousel-control-prev" href="#carousel<%= section %>" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel<%= section %>" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    <% } else { %>
+                        <div class="row">
+                            <% groupedProducts[section].forEach(product => { %>
+                                <div class="col-sm-3">
+                                    <div class="card">
+                                        <a href="/product/<%= product.id %>">
+                                        <img src="<%= product.imageUrl %>" class="card-img-top" alt="<%= product.name %>">
+                                        </a>
+                                        <div class="card-body">
+                                            <h5 class="card-title"><%= product.name %></h5>
+                                            <p class="card-text"><%= product.description %></p>
+                                            <p class="card-text"><small class="text-muted">Price: $<%= product.price.toFixed(2) %></small></p>
+                                        </div>
                                     </div>
                                 </div>
-                            <% } %>
+                            <% }); %>
                         </div>
-    
-                        <!-- Carousel controls -->
-                        <a class="carousel-control-prev" href="#carousel<%= section %>" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel<%= section %>" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                <% } else { %>
-                    <div class="row">
-                        <% groupedProducts[section].forEach(product => { %>
-                            <div class="col-sm-3">
-                                <div class="card">
-                                    <a href="/product/<%= product.id %>">
+                    <% } %>
+                </div>
+            </section>
+        <% }); %>
+    <% } else { %>
+        <!-- Display items for the selected category without carousel -->
+        <main>
+            <div class="container">
+                <h2 class="text-center"><%= selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1) %></h2>
+                <div class="row">
+                    <% groupedProducts[selectedCategory].forEach(product => { %>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <a href="/product/<%= product.id %>">
                                     <img src="<%= product.imageUrl %>" class="card-img-top" alt="<%= product.name %>">
-                                    </a>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><%= product.name %></h5>
-                                        <p class="card-text"><%= product.description %></p>
-                                        <p class="card-text"><small class="text-muted">Price: $<%= product.price.toFixed(2) %></small></p>
-                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= product.name %></h5>
+                                    <p class="card-text"><%= product.description %></p>
+                                    <p class="card-text"><small class="text-muted">Price: $<%= product.price.toFixed(2) %></small></p>
                                 </div>
                             </div>
-                        <% }); %>
-                    </div>
-                <% } %>
+                        </div>
+                    <% }); %>
+                </div>
             </div>
-        </section>
-        <% }); %>
+        </main>
+    <% } %>
 </main>
 
 <footer>
@@ -91,5 +116,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/js/product-listing.js"></script>
 </body>
 </html>
