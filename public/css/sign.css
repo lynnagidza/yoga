@@ -1,0 +1,72 @@
+/* Add your custom styles for the sign-in page here */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+h2, p {
+    text-align: center;
+}
+
+.signForm {
+    margin-top: 40px;
+    background-color: #fff;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.logo-txt {
+    text-align: center;
+    font-family: 'Playfair Display', 'Major Mono Display', serif, monospace;
+    font-size: 32px;
+    color: #dd4730;
+    margin-bottom: 20px;
+}
+
+.logo-txt:hover {
+    text-decoration: none;
+    color: #E6D5C4;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    width: 100%;
+}
+
+#signInButton, #signUpButton2 {
+    background-color: #28a745;
+    color: #fff;
+}
+
+#signInButton:hover, #signUpButton2:hover {
+    background-color: #218838;
+}
+
+#signUpButton {
+    background-color: #f4f1ed;
+}
+
+#signUpButton:hover {
+    background-color: #E6D5C4;
+}
+
+#signUpButton a{
+    color: #000;
+    text-decoration: none;
+}
+
+/* Add more styles as needed */

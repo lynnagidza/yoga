@@ -30,11 +30,17 @@ const indexRouter = require('./routes/index');
 const productsRouter = require('./routes/products');
 const individualProductRouter = require('./routes/product-details');
 const shoppingCartRouter = require('./routes/cart');
+const checkoutRouter = require('./routes/checkout');
+const signInRouter = require('./routes/signin');
+const signUpRouter = require('./routes/signup');
 
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/product', individualProductRouter);
 app.use('/cart', shoppingCartRouter);
+app.use('/checkout', checkoutRouter);
+app.use('/signin', signInRouter);
+app.use('/signup', signUpRouter);
 
 app.use((err, req, res, next) => {
   res.status(500).send('Internal server error');

@@ -1,36 +1,42 @@
-// // controllers/userController.js
-// const User = require('../models/User'); // Assuming your User model is in models/User.js
-// const bcrypt = require('bcrypt');
+const db = require('../utils/db');
+const User = require('../models/user');
 
-// // User registration
-// exports.registerUser = async (req, res) => {
-//   try {
-//     const { username, email, password } = req.body;
+db.on('open', () => {});
 
-//     // Hash the password
-//     const hashedPassword = await bcrypt.hash(password, 10);
+class UserController {
+  constructor() {
+    this.createUser = this.createUser.bind(this);
+    this.findUser = this.findUser.bind(this);
+    this.updateUser = this.updateUser.bind(this);
+    this.deleteUser = this.deleteUser.bind(this);
+  }
 
-//     // Create a new user
-//     const newUser = new User({
-//       username,
-//       email,
-//       password: hashedPassword,
-//     });
+  async createUser(name, email, password) {
+    const user = new User({
+      name, email, password,
+    });
+    const savedUser = await user.save();
+    return savedUser;
+  }
 
-//     // Save the user to the database
-//     await newUser.save();
+  async findUser(id) {
+    const user = await User.findById(id);
+    return user;
+  }
 
-//     res.status(201).json({ message: 'User registered successfully' });
-//   } catch (error) {
-//     console.error('Error registering user:', error);
-//     res.status(500).json({ message: 'Internal server error' });
-//   }
-// };
+  async updateUser(id, name, email, password) {
+    const user = await User.findById(id);
+    user.name = name;
+    user.email = email;
+    user.password = password;
+    const savedUser = await user.save();
+    return savedUser;
+  }
 
-// // User login
-// exports.loginUser = (req, res) => {
-//   // Implement login logic here using Passport.js or your chosen authentication strategy
-//   // Return appropriate responses based on login success or failure
-// };
+  async deleteUser(id) {
+    const user = await User.findById(id);
+    await user.remove();
+  }
+}
 
-// // Other user-related controller functions can be added here
+module.exports = UserController;

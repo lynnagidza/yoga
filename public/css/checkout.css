@@ -1,0 +1,35 @@
+/* Add your custom styles for the checkout page here */
+.user-details {
+    margin-top: 20px;
+}
+
+.user-details form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.user-details form label {
+    font-weight: bold;
+}
+
+.user-details form .form-control {
+    margin-bottom: 15px;
+}
+
+.user-details form button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-details form button:hover {
+    background-color: #218838;
+}
+
+/* Add more styles as needed */
