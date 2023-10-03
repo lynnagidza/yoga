@@ -56,15 +56,15 @@ h2, p {
     background-color: #218838;
 }
 
-#signUpButton {
+#signUpButton, #signInButton2 {
     background-color: #f4f1ed;
 }
 
-#signUpButton:hover {
+#signUpButton:hover, #signInButton2:hover {
     background-color: #E6D5C4;
 }
 
-#signUpButton a{
+#signUpButton a, #signInButton2 a {
     color: #000;
     text-decoration: none;
 }
