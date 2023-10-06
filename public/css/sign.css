@@ -14,6 +14,7 @@ h2, p {
 }
 
 .signForm {
+    margin: 0 auto;
     margin-top: 40px;
     background-color: #fff;
     max-width: 500px;
@@ -22,7 +23,6 @@ h2, p {
 }
 
 .logo-txt {
-    text-align: center;
     font-family: 'Playfair Display', 'Major Mono Display', serif, monospace;
     font-size: 32px;
     color: #dd4730;
@@ -31,7 +31,7 @@ h2, p {
 
 .logo-txt:hover {
     text-decoration: none;
-    color: #E6D5C4;
+    color: #dd4730;
 }
 
 .form-group {
@@ -68,5 +68,3 @@ h2, p {
     color: #000;
     text-decoration: none;
 }
-
-/* Add more styles as needed */

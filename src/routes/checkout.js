@@ -1,13 +1,37 @@
 const express = require('express');
 
 const router = express.Router();
+const country = require('../models/country');
+const {
+  viewCart, calculateTotalPrice,
+} = require('../controllers/cartController');
 // const {
 //   createUsers, findUser, updateUser, deleteUser,
 // } = require('../controllers/userController');
 
 router.get('/', async (req, res) => {
-  res.render('checkout');
+  try {
+    // populate the countries and towns
+    // const countries = country.sort((a, b) => a.name.localeCompare(b.name));
+    // const towns = country.sort((a, b) => a.name.localeCompare(b.name));
+
+    // retrive cart data and calculate totals
+    const { guestId } = req.cookies;
+
+    const cartItems = await viewCart(null, guestId);
+    const subtotal = calculateTotalPrice(cartItems);
+    const deliveryFee = 777;
+    const grandTotal = subtotal + deliveryFee;
+
+    res.render('checkout', {
+      // countries, towns,
+      cartItems, subtotal, deliveryFee, grandTotal,
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Error getting user details:', err });
+  }
 });
+
 // router.post('/', async (req, res) => {
 //   const { name, email, password } = req.body;
 //   try {

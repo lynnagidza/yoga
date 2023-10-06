@@ -1,35 +1,175 @@
-/* Add your custom styles for the checkout page here */
-.user-details {
+.container {
     margin-top: 20px;
 }
 
-.user-details form {
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.user-details form label {
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+}
+
+.form-header p {
+    margin: 0;
+    font-size: small;
+    text-align: right;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: smaller;
     font-weight: bold;
 }
 
-.user-details form .form-control {
-    margin-bottom: 15px;
+input,
+select,
+textarea {
+    margin: 10px 5px;
 }
 
-.user-details form button {
+/* Styles for the name and city/town containers */
+.name-container,
+.city-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-control-select {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.btn-success.place-order {
     background-color: #28a745;
     color: #fff;
-    padding: 10px 20px;
+    padding: 5px 15px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    float: right;
+    clear: both;
 }
 
-.user-details form button:hover {
+.btn-success.place-order:hover {
     background-color: #218838;
 }
 
-/* Add more styles as needed */
+/* Styles for the cart section */
+#cart {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-height: 100%;
+    overflow: auto;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.cart-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.cart-items-table th,
+.cart-items-table td {
+    border: none;
+    padding: 10px;
+    text-align: left;
+}
+
+.cart-items-table .subtotal {
+    text-align: right;
+}
+
+.cart-items-table th {
+    background-color: #f2f2f2;
+}
+
+.cart-items-table img {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+
+.update-cart {
+    background-color: #e7b786;
+    color: #fff;
+    padding: 5px 15px;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.update-cart:hover {
+    background-color: #E6D5C4;
+}
+
+.cart-summary {
+    margin-top: 20px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px dashed #ddd;
+}
+
+.cart-summary p {
+    margin: 5px 0;
+    font-size: 16px;
+    text-align: right;
+}
+
+.cart-summary .total-label {
+    font-weight: bold;
+}
+
+.cart-summary .total-price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cart-totals {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.cart-totals p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.delivery-fee-label,
+.total-label {
+    font-weight: bold;
+}
+
+.delivery-fee-price,
+.total-price {
+    font-size: 18px;
+}

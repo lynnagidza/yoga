@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const decreaseButtons = document.querySelectorAll('.decrease-button');
   const increaseButtons = document.querySelectorAll('.increase-button');
   const removeButtons = document.querySelectorAll('.remove-button');
+  const proceed2checkout = document.querySelector('.proceed-to-checkout');
 
   decreaseButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -70,5 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const itemId = button.getAttribute('data-item-id');
       removeFromCart(itemId);
     });
+  });
+
+  proceed2checkout.addEventListener('click', () => {
+    window.location.href = '/checkout';
   });
 });
