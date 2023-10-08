@@ -1,8 +1,15 @@
 const passport = require('passport');
+const User = require('../models/user');
 
-exports.isAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    return next();
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findById(id);
+    done(null, user);
+  } catch (error) {
+    done(error);
   }
-  res.status(401).json({ message: 'Unauthorized' });
-};
+});

@@ -36,6 +36,10 @@ class CartController {
           userId, productId, productName, quantity, price, imageUrl,
         });
       }
+      const cartItemsToUpdate = await CartItem.find({ guestId });
+      if (cartItemsToUpdate.length > 0) {
+        await CartItem.updateMany({ guestId }, { userId });
+      }
     } else if (await CartItem.findOne({ guestId, productId })) {
       cartItem = await CartItem.findOne({ guestId, productId });
       cartItem.quantity += 1;

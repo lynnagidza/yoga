@@ -31,7 +31,8 @@
     "express-static": "^1.2.6",
     "mongodb": "^6.1.0",
     "mongoose": "^7.5.2",
-    "passport": "^0.6.0"
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^8.49.0",

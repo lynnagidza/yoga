@@ -3,38 +3,39 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
+const CartItem = require('../models/cart-item');
 
-// Route to serve the signup form
 router.get('/', (req, res) => {
   res.render('signup');
 });
 
-// Route to handle user registration form
 router.post('/', async (req, res) => {
   try {
-    // Get user input from the registration form
-    const { username, email, password } = req.body;
+    const { email, password } = req.body;
 
-    // Check if the user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ message: 'User already exists' });
+      return res.redirect('/signin');
     }
 
-    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create a new user
     const newUser = new User({
-      username,
+      // username,
       email,
       password: hashedPassword,
+      role: 'user',
+      created_at: Date.now(),
+      updated_at: Date.now(),
     });
 
-    // Save the user to the database
     await newUser.save();
 
-    res.status(201).json({ message: 'User registered successfully' });
+    const cartItemsToUpdate = await CartItem.find({ guestId: req.guestId });
+    if (cartItemsToUpdate.length > 0) {
+      await CartItem.updateMany({ guestId: req.guestId }, { userId: newUser.id });
+    }
+    res.redirect(req.get('referer'));
   } catch (error) {
     console.error('Error registering user:', error);
     res.status(500).json({ message: 'Internal server error' });

@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const expressRedirect = require('express-redirect');
+const bodyParser = require('body-parser');
+const session = require('express-session');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,6 +22,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+}));
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../views'));
 
@@ -33,6 +43,7 @@ const shoppingCartRouter = require('./routes/cart');
 const checkoutRouter = require('./routes/checkout');
 const signInRouter = require('./routes/signin');
 const signUpRouter = require('./routes/signup');
+const orderConfirmationRouter = require('./routes/order-confirmation');
 
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
@@ -41,6 +52,7 @@ app.use('/cart', shoppingCartRouter);
 app.use('/checkout', checkoutRouter);
 app.use('/signin', signInRouter);
 app.use('/signup', signUpRouter);
+app.use('/order-confirmation', orderConfirmationRouter);
 
 app.use((err, req, res, next) => {
   res.status(500).send('Internal server error');
