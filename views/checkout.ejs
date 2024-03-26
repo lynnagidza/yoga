@@ -32,7 +32,7 @@
                             <p>Already have an account? <a href="/signin">Login</a></p>
                         </div>
 
-                        <form action="/confirm-order" method="POST" class="form-group">
+                        <form class="form-group">
                             <!-- Name -->
                             <div class="name-container">
                                 <input type="text" class="form-control" id="firstName" name="firstName"
@@ -103,8 +103,11 @@
                             <!-- Payment method -->
                             <!-- TODO Create adn integrate a payment method -->
 
-                            <button type="submit" class="btn btn-success place-order" href="/order-confirmation">Place
-                                Order</button>
+                            <!-- <button class="btn btn-success place-order" href="/order-confirmation"
+                                id="placeOrderBtn">Place
+                                Order</button> -->
+                            <a href="/order-confirmation" class="btn btn-success place-order">Place
+                                Order</a>
                         </form>
                     </div>
                     <div class="col-md-6" id="cart">

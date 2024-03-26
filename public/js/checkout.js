@@ -2,6 +2,7 @@ const countrySelect = document.getElementById('country');
 const citySelect = document.getElementById('shippingCity');
 const deliveryFeeElement = document.getElementById('deliveryFee');
 const grandTotalElement = document.querySelector('.total-price');
+const placeOrderButton = document.getElementById('placeOrderBtn');
 
 function populateCitiesAndCalculateTotal() {
   const selectedCountry = countrySelect.value;
@@ -36,3 +37,8 @@ countrySelect.addEventListener('change', populateCitiesAndCalculateTotal);
 
 // Initialize the city dropdown and totals when the page loads
 populateCitiesAndCalculateTotal();
+
+placeOrderButton.addEventListener('click', () => {
+  console.log('Place order button clicked');
+  window.location.href = '/order-confirmation';
+});

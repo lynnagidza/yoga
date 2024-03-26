@@ -58,4 +58,11 @@ router.get('/getUpdatedData', async (req, res) => {
   }
 });
 
+// router.post('/confirm-order', async (req, res) => {
+//   // update the user details with the new data if the user is logged in
+//   if (req.session.user) {
+//     const updatedUser = await updateUser(req.session.user._id, req.body);
+//     req.session.user = updatedUser;
+//   }
+
 module.exports = router;

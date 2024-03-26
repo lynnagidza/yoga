@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = new User({
-      // username,
+      username: email,
       email,
       password: hashedPassword,
       role: 'user',
@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
     if (cartItemsToUpdate.length > 0) {
       await CartItem.updateMany({ guestId: req.guestId }, { userId: newUser.id });
     }
-    res.redirect(req.get('referer'));
+    res.redirect('/signin');
   } catch (error) {
     console.error('Error registering user:', error);
     res.status(500).json({ message: 'Internal server error' });

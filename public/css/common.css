@@ -88,3 +88,14 @@ footer {
     font-size: 30px;
     padding: 0 5px 0 0;
 }
+
+/* order confirmation */
+.orderConfirmation {
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 15px;
+    margin-top: 50px;
+    width: 300px;
+    /* background-color: #fff; */
+    /* border-radius: 5px; */
+}
